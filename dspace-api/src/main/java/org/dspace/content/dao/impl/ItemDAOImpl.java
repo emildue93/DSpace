@@ -370,7 +370,7 @@ public class ItemDAOImpl extends AbstractHibernateDSODAO<Item> implements ItemDA
     @Override
     public Iterator<Item> findByLastModifiedSince(Context context, Date since)
         throws SQLException {
-        Query query = createQuery(context, "SELECT i FROM item i WHERE last_modified > :last_modified");
+        Query query = createQuery(context, "SELECT i FROM Item i WHERE last_modified > :last_modified");
         query.setParameter("last_modified", since, TemporalType.TIMESTAMP);
         return iterate(query);
     }
